@@ -2,9 +2,8 @@
 #include <PubSubClient.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include <WifiPass.h>
 
-#define wifi_ssid "Main_nomap_optout"
-#define wifi_password "l2nIp8lP*hQjU^qY"
 #define mqtt_server "10.10.2.1"
 #define mqtt_client "HWTankESP"
 #define temperature_topic "HWTank/Temperature"
@@ -32,9 +31,9 @@ void setup_wifi() {
   delay(10);
   Serial.println();
   Serial.print("Connecting to ");
-  Serial.println(wifi_ssid);
+  Serial.println(WIFI_SSID);
 
-  WiFi.begin(wifi_ssid, wifi_password);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
